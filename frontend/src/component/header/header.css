@@ -1,0 +1,41 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    height: 75px;
+    align-items: center;
+    position: fixed;
+    width: 100vw;
+    background-color: #4B382A;
+    color: #fff;
+    /* margin: 0 -30px; */
+    padding: 30px 70px;
+}
+.header a{
+    color: #fff;
+}
+.header a:hover{
+    color: tomato;
+}
+
+.navbar ul{
+    display: flex;
+    gap: 20px;
+}
+.action{
+    display: flex;
+    gap: 10px;
+}
+
+.user-icon{
+    cursor: pointer;
+}
+.header i:hover{
+    color: tomato;
+    cursor: pointer;
+}
+.logo{
+    font-size: 20px;
+}
+.logo:hover{
+    color: #fff!important;
+}

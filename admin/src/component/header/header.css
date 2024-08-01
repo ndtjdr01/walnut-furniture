@@ -1,0 +1,21 @@
+.header-container{
+    display: flex;
+    justify-content: space-between;
+    padding:20px 80px;
+    align-items: center;
+    background-color: rgb(58, 42, 42);
+    color: aliceblue;
+    height: 70px;
+}
+.navbar{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.header-container p:hover{
+    color: tomato;
+    cursor: pointer;
+}
+.logo, .setting{
+    cursor: pointer;
+}

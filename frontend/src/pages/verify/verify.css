@@ -1,0 +1,36 @@
+.payment-fail p{
+    color: red;
+    font-size: 25px;
+    font-weight: 600;
+}
+.payment-success p{
+    color: green;
+    font-weight: 600;
+    font-size: 25px;
+}
+.verify-container{
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 100px;
+}
+.payment-success,.payment-fail{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+.verify-container button{
+    width: 150px;
+    border: none;
+    background-color: #3A2A2A;
+    border-radius: 10px;
+    padding: 13px;
+    cursor: pointer;
+}
+.verify-container button a{
+    color: white;
+}

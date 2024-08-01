@@ -1,0 +1,28 @@
+.slide-container{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    border-right: 1px solid #000;
+    height: 100vh;
+    gap: 2px;
+}
+
+.option:first-child{
+    margin-top: 30px;
+}
+.option{
+    border: 1px solid gray;
+    margin: 3px ;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+.active{
+    color: tomato!important;
+}
+.option-child{
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: gray;
+}

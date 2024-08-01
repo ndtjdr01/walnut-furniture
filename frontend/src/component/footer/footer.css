@@ -1,0 +1,20 @@
+.footer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: space-between;
+    gap: 15px;
+    width: 100%;
+    padding: 30px 70px;
+    background-color: #1F0F07;
+    font-size: 14px;
+    max-height: 30vh;
+}
+.footer-title{
+    /* font-weight: 700; */
+    font-size: 18px;
+    font-family: 'Merriweather';
+    color: #f55b5b!important;
+}
+.footer p{
+    color: #dadada;
+}

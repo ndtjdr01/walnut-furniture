@@ -1,0 +1,5 @@
+*************NOI THAT OC CHO************
+
+-quản lý đơn hàng(admin)
+-thanh toán đơn hàng(paypal with stripe)
+-tìm kiếm sản phẩm

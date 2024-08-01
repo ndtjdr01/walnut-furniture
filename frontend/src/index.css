@@ -1,0 +1,33 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Merriweather';
+}
+a{
+  color: #000;
+  text-decoration: none;
+  font-family: 'Lora';
+}
+p{
+  font-family: 'Lora';
+  color: #4A4A4A;
+}
+li{
+  list-style-type: none;
+}
+#root{
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+.app{
+  flex: 1;
+  margin-top: 76px;
+  height: 10000px;
+  background-color: #faf7ef;
+}
+.no-select{
+  user-select: none;
+}
