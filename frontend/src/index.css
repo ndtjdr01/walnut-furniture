@@ -2,15 +2,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Lora';
+  font-family: 'Lora', sans-serif;
 }
 a{
   color: #000;
   text-decoration: none;
-  font-family: 'Lora';
+  font-family: 'Lora', sans-serif;
 }
 p{
-  font-family: 'Lora';
+  font-family: 'Lora', sans-serif;
   color: #4A4A4A;
 }
 li{
