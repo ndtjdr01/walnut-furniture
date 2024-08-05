@@ -9,7 +9,7 @@ require('./db.js')
 
 // middleware
 app.use((req, res, next) => {
-    res.setHeader("Content-Security-Policy", "default-src 'self'; style-src 'self' 'https://fonts.googleapis.com'; font-src 'self' 'https://fonts.gstatic.com';");
+    res.setHeader("Content-Security-Policy", "default-src 'self'; style-src 'self' 'https://fonts.googleapis.com'; font-src 'self' 'https://fonts.googleapis.com';");
     next();
 });
 app.use(cors())
