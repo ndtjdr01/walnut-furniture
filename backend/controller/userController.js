@@ -2,7 +2,7 @@ require('dotenv').config()
 const jwt = require('jsonwebtoken');
 const UserDB = require('../models/user');
 const validator = require('validator');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const createToken = (userId) =>{
     const token = jwt.sign({userId},"jwt_secret")
     return token

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './form.css'
 import axios from 'axios'
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const FormContact = () => {
     const [data, setData] = useState({
         name: '',
@@ -18,7 +18,7 @@ const FormContact = () => {
     const addOrderOffline = async (e) => {
         e.preventDefault()
         try {
-            const response = await axios.post(`http://localhost:1000/api/order/offline`, data)
+            const response = await axios.post(`${API_BASE_URL}/api/order/offline`, data)
             if(response){
                 alert('okey chúng tôi sẽ gọi bạn trong vài giờ tới, cảm ơn bạn đã liên hệ chúng tôi')
                 setData({

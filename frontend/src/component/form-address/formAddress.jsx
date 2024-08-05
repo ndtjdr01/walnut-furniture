@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import './form.css'
 import axios from 'axios'
 import { ProductContext } from '../../context'
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const FormAddress = () => {
     const { product_lists, cartItems,getTotal } = useContext(ProductContext)
@@ -23,7 +24,7 @@ const FormAddress = () => {
         const token = localStorage.getItem('token')
         e.preventDefault()
         try {
-            const response = await axios.post('http://localhost:1000/api/order/online',
+            const response = await axios.post(`${API_BASE_URL}/api/order/online`,
                 {
                     name: data.name,
                     phone: data.phone,

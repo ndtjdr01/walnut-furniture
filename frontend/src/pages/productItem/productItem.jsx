@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import './productItem.css'
 import { ProductContext } from '../../context'
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const ProductItem = ({ setFormDisplay }) => {
   const {removeToCart, addToCart,cartItems} = useContext(ProductContext)
   const { id } = useParams()
@@ -18,7 +18,7 @@ const ProductItem = ({ setFormDisplay }) => {
   }
   const getData = async () => {
     try {
-      const response = await axios.get(`http://localhost:1000/api/product/${id}`)
+      const response = await axios.get(`${API_BASE_URL}/api/product/${id}`)
       setItem(response.data)
     } catch (error) {
       console.log(error)
@@ -30,7 +30,7 @@ const ProductItem = ({ setFormDisplay }) => {
   return (
     <div className='product-item-container'>
       <div className="product-item-img-container">
-        <img src={`http://localhost:1000/api/images/${item.image}`} alt="" />
+        <img src={`${API_BASE_URL}/api/images/${item.image}`} alt="" />
       </div>
       <div className="product-item-description">
         <h3>{item.name}</h3>

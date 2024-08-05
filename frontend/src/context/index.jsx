@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react'
 import { menu_list, product_list } from '../assets/assets'
 import axios from 'axios'
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 export const ProductContext = createContext(null)
 
 const ProductGolobal = ({ children }) => {
@@ -13,7 +13,7 @@ const ProductGolobal = ({ children }) => {
   // cart
   const getCartItems = async (token) => {
     try {
-      const response = await axios.post('http://localhost:1000/api/user/cart/get', {}, { headers: { token } })
+      const response = await axios.post(`${API_BASE_URL}/api/user/cart/get`, {}, { headers: { token } })
       setCartItems(response.data.data.cartItems)
     } catch (error) {
       console.log(error)
@@ -30,7 +30,7 @@ const ProductGolobal = ({ children }) => {
     }
     setCartItems(cart)
     try {
-      const response = await axios.post(`http://localhost:1000/api/user/cart/add`, { item: cart }, { headers: { token } })
+      const response = await axios.post(`${API_BASE_URL}/api/user/cart/add`, { item: cart }, { headers: { token } })
       console.log(response.data.user.cartItems)
     } catch (error) {
       console.log(error)
@@ -47,7 +47,7 @@ const ProductGolobal = ({ children }) => {
     }
     setCartItems(cart)
     try {
-      const response = await axios.post(`http://localhost:1000/api/user/cart/add`, { item: cart }, { headers: { token } })
+      const response = await axios.post(`${API_BASE_URL}/api/user/cart/add`, { item: cart }, { headers: { token } })
       // console.log(response.data.user.cartItems)
     } catch (error) {
       console.log(error)
@@ -66,7 +66,7 @@ const ProductGolobal = ({ children }) => {
 // product
   const getProduct = async()=>{
     try {
-      const response = await axios.get('http://localhost:1000/api/product/')
+      const response = await axios.get(`${API_BASE_URL}/api/product/`)
       if(response){
         setProduct_lists(response.data)
       }

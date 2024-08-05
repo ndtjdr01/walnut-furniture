@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import './product.css'
 import { ProductContext } from '../../context'
 import { Link } from 'react-router-dom'
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const Product = () => {
   const { menu_lists, product_lists, addToCart, cartItems,removeToCart } = useContext(ProductContext)
   const [data, setData] = useState([])
@@ -43,7 +43,7 @@ const Product = () => {
           {data
             ? data.map((item, index) => (
               <div className='product-item' key={index}>
-                <img src={`http://localhost:1000/api/images/${item.image}`} alt="" />
+                <img src={`${API_BASE_URL}/api/images/${item.image}`} alt="" />
                 <div className='product-item-price-name'>
                   <p className='product-item-name'>{item.name}</p>
                   <p className='product-item-price'>{item.price}</p>

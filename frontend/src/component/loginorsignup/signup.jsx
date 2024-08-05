@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './login.css'
 import axios from 'axios'
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const Signup = ({setIsTypeLogin,setIsLogin}) => {
     const [data, setData] = useState({
         email: '',
@@ -16,7 +16,7 @@ const Signup = ({setIsTypeLogin,setIsLogin}) => {
         e.preventDefault()
         if (data.password !== data.confirmPassword) return alert('password confirm is not correct')
         try {
-            const response = await axios.post(`http://localhost:1000/api/user/signup`, {
+            const response = await axios.post(`${API_BASE_URL}/api/user/signup`, {
                 email: data.email,
                 password: data.password,
                 name: data.name

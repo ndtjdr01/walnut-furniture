@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import './verify.css'
 import { Link, useSearchParams } from 'react-router-dom'
 import axios from 'axios'
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const Verify = () => {
     const [searchParams] = useSearchParams()
     const success = searchParams.get('success')
@@ -10,7 +10,7 @@ const Verify = () => {
     const updatePayment = async () => {
         try {
             if (success) {
-                const response = await axios.put(`http://localhost:1000/api/order/online/${orderId}`, { payment: true })
+                const response = await axios.put(`${API_BASE_URL}/api/order/online/${orderId}`, { payment: true })
                 console.log(response)
                 if (response) alert('payment successful')
             }
@@ -21,7 +21,7 @@ const Verify = () => {
             console.log(error)
         }
     }
-    useEffect(() => { updatePayment }, [])
+    useEffect(() => updatePayment, [])
     return (
         <div className='verify-container'>
             <h2 className='title'>Payment</h2>
@@ -29,7 +29,7 @@ const Verify = () => {
                 {success === 'true'
                     ? <div className="payment-success">
                         <p>Payment success</p>
-                        <button>return to home</button>
+                        <button><Link to={'/'}>return to home</Link></button>
                     </div>
                     : <div className="payment-fail">
                         <p>Payment fail</p>

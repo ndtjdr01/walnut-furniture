@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import './login.css'
 import axios from 'axios'
 import { ProductContext } from '../../context'
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const Login = ({setIsLogin, setIsTypeLogin}) => {
     const {token,setToken} = useContext(ProductContext)
     const [data,setData] = useState({
@@ -15,7 +15,7 @@ const Login = ({setIsLogin, setIsTypeLogin}) => {
     const handleSubmit= async(e)=>{
         e.preventDefault()
         try {
-            const response = await axios.post(`http://localhost:1000/api/user/login`,{
+            const response = await axios.post(`${API_BASE_URL}/api/user/login`,{
                 email:data.email,
                 password:data.password
             })

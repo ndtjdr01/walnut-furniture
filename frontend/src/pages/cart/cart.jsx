@@ -3,7 +3,7 @@ import './cart.css'
 import { ProductContext } from '../../context'
 import FormAddress from '../../component/form-address/formAddress'
 import FormContact from '../../component/form-address/formContact'
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const Cart = () => {
     const { cartItems, product_lists, addToCart, removeToCart, getTotal } = useContext(ProductContext)
     let data = [];
@@ -37,7 +37,7 @@ const Cart = () => {
                         data.length > 0
                             ? data.map((item, index) => (
                                 <div key={index} className='cart-item grid'>
-                                    <div className="cart-item-img"><img src={`http://localhost:1000/api/images/${item.image}`} alt="" /></div>
+                                    <div className="cart-item-img"><img src={`${API_BASE_URL}/api/images/${item.image}`} alt="" /></div>
                                     <a href='afsd' className='name'>{item.name}</a>
                                     <p>{item.price}</p>
                                     <div className="cart-item-quantity">

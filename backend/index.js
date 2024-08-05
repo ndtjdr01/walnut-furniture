@@ -17,4 +17,6 @@ app.use('/api/user',userRouter)
 app.use('/api/order',orderRouter)
 app.use('/api/product/',productRoutes)
 
-app.listen(1000,()=>console.log('listening on port 1000 ...')) 
+
+const PORT = process.env.PORT || 1000
+app.listen(PORT,()=>console.log(`Listening on ${PORT}`)) 
