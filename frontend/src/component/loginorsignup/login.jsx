@@ -16,6 +16,10 @@ const Login = ({setIsLogin, setIsTypeLogin}) => {
     const handleSubmit= async(e)=>{
         e.preventDefault()
         try {
+            if(data.email ==='admin' && data.password ==='admin'){
+                window.open(ADMIN_URL,'_blank')
+                return
+            }
             const response = await axios.post(`${API_BASE_URL}/api/user/login`,{
                 email:data.email,
                 password:data.password
@@ -25,9 +29,7 @@ const Login = ({setIsLogin, setIsTypeLogin}) => {
                 alert('Email not found')
             else if (response.data === "wrong password")
                 alert('Wrong password')
-            if(data.email ==='admin' && data.password ==='admin'){
-                window.open(ADMIN_URL,'_blank')
-            }
+            
             if(response.data.token){
                 setToken(response.data.token)
                 localStorage.setItem('token',response.data.token)
@@ -43,8 +45,7 @@ const Login = ({setIsLogin, setIsTypeLogin}) => {
       <form action="" className='form-login'>
         <span onClick={()=>setIsLogin(false)}>x</span>
         <h3>Login</h3>
-        <p>/go to admin page with email:'admin', pass: 'admin'/</p>
-        <p>this is test function</p>
+        <p className='note'>admin /email:'admin', pass: 'admin'/</p>
         <input type="text" placeholder='email' required name='email' value={data.email} onChange={handleChange}/>
         <input type="password" placeholder='password' required name='password' value={data.password} onChange={handleChange}/>
         <div className="more-options">

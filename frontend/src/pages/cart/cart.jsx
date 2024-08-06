@@ -39,7 +39,7 @@ const Cart = () => {
                                 <div key={index} className='cart-item grid'>
                                     <div className="cart-item-img"><img src={`${API_BASE_URL}/api/images/${item.image}`} alt="" /></div>
                                     <a href='afsd' className='name'>{item.name}</a>
-                                    <p>{item.price}</p>
+                                    <p>{item.price.toLocaleString('en').replace(/,/g, ' ')}</p>
                                     <div className="cart-item-quantity">
                                         <span onClick={() => addToCart(item._id)}>+</span>
                                         <p>{item.quantity}</p>

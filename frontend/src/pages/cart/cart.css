@@ -142,3 +142,38 @@ h4{
     border-radius: 10px;
     cursor: pointer;
 }
+
+@media screen and (max-width: 768px){
+    .cart-payment{
+        flex-direction: column;
+    }
+    .form-container,.payment{
+        width: 100%!important;
+    }
+    option{
+        font-size: 12px;
+    }
+    .cart-container h3{
+        margin: 10px;
+    }
+    .cart-item-img{
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .cart-item img{
+        width: 60px;
+    }
+    .cart-item-quantity{
+        flex-direction: column;
+        gap: 0;
+    }
+    .cart-item-title{
+        height: 100%;
+    }
+    .cart-item-title p{
+        font-size: 14px;
+        line-height: 1.5;
+    }
+}

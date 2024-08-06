@@ -76,3 +76,15 @@
     justify-content: center;
     margin: 20px 0 0;
 }
+
+@media (max-width: 768px) {
+    .product-item-container{
+        margin: 0;
+        padding: 30px;
+        flex-direction: column;
+    }
+    .product-item-description{
+        margin: 10px;
+        max-width: 100%;
+    }
+}
