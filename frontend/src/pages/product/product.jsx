@@ -15,7 +15,7 @@ const Product = () => {
     if (cartItems[id] > 0) {
       removeToCart(id)
     }
-    else {
+    else { 
       addToCart(id)
     }
   }
