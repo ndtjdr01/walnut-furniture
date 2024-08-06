@@ -10,6 +10,7 @@ const Verify = () => {
     const navigate = useNavigate()
     const backHome = () => {
         navigate('/')
+        window.location.reload()
     }
     const updatePayment = async () => {
         try {
