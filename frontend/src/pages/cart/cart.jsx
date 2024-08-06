@@ -4,7 +4,7 @@ import { ProductContext } from '../../context'
 import FormAddress from '../../component/form-address/formAddress'
 import FormContact from '../../component/form-address/formContact'
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-const Cart = () => {
+const Cart = ({setFormDisplay}) => {
     const { cartItems, product_lists, addToCart, removeToCart, getTotal } = useContext(ProductContext)
     let data = [];
     for (let item of product_lists) {
@@ -89,7 +89,7 @@ const Cart = () => {
                             </div>
                             <div className="payment-contact-zalo">
                                 <span>zalo: 0378951780</span>
-                                <div>liên hệ ngay</div>
+                                <div onClick={()=>setFormDisplay(true)}>liên hệ ngay</div>
                             </div>
                         </div>
                     </div>

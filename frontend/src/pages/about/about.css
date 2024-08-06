@@ -1,0 +1,21 @@
+.about-container{
+    margin: 70px;
+    line-height: 1.4;
+    font-size: 18px;
+}
+.about-container h3{
+    font-size: 22px;
+    color: tomato;
+    margin-bottom: 20px;
+}
+.about-container p{
+    color: #000;
+}
+.about-container span{
+    color: rgb(167, 99, 99);
+}
+@media (max-width: 768px) {
+    .about-container{
+        padding: 20px;
+    }
+}

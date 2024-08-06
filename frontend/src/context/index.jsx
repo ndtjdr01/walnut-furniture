@@ -9,14 +9,21 @@ const ProductGolobal = ({ children }) => {
   const [token, setToken] = useState(null)
   const [product_lists, setProduct_lists] = useState([])
   const [menu_lists, setMenu_lists] = useState([])
+  const [loading,setLoading] = useState(false)
+  const [error, setError] = useState(false)
 
   // cart
   const getCartItems = async (token) => {
     try {
+      setLoading(true)
       const response = await axios.post(`${API_BASE_URL}/api/user/cart/get`, {}, { headers: { token } })
       setCartItems(response.data.data.cartItems)
     } catch (error) {
+      setError(true)
       console.log(error)
+    }
+    finally{
+      setLoading(false)
     }
   }
   const addToCart = async (id) => {
@@ -33,6 +40,7 @@ const ProductGolobal = ({ children }) => {
       const response = await axios.post(`${API_BASE_URL}/api/user/cart/add`, { item: cart }, { headers: { token } })
       console.log(response.data.user.cartItems)
     } catch (error) {
+      setError(true)
       console.log(error)
     }
   }
@@ -50,6 +58,7 @@ const ProductGolobal = ({ children }) => {
       const response = await axios.post(`${API_BASE_URL}/api/user/cart/add`, { item: cart }, { headers: { token } })
       // console.log(response.data.user.cartItems)
     } catch (error) {
+      setError(true)
       console.log(error)
     }
   }
@@ -66,12 +75,17 @@ const ProductGolobal = ({ children }) => {
 // product
   const getProduct = async()=>{
     try {
+      setLoading(true)
       const response = await axios.get(`${API_BASE_URL}/api/product/`)
       if(response){
         setProduct_lists(response.data)
       }
     } catch (error) {
+      setError(true)
       console.log(error)
+    }
+    finally{
+      setLoading(false)
     }
   }
   useEffect(()=>getProduct(),[])
@@ -91,7 +105,9 @@ const ProductGolobal = ({ children }) => {
     setCartItems,
     addToCart,
     removeToCart,
-    getTotal
+    getTotal,
+    loading,
+    error
   }
 
   return (
