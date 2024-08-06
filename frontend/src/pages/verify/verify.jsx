@@ -1,12 +1,16 @@
 import React, { useEffect } from 'react'
 import './verify.css'
-import { Link, useSearchParams } from 'react-router-dom'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import axios from 'axios'
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const Verify = () => {
     const [searchParams] = useSearchParams()
     const success = searchParams.get('success')
     const orderId = searchParams.get('orderId')
+    const navigate = useNavigate()
+    const backHome = () => {
+        navigate('/')
+    }
     const updatePayment = async () => {
         try {
             if (success===true) {
@@ -29,11 +33,11 @@ const Verify = () => {
                 {success === 'true'
                     ? <div className="payment-success">
                         <p>Payment success</p>
-                        <button><Link to={'/'}>return to home</Link></button>
+                        <button onClick={backHome}>return to home</button>
                     </div>
                     : <div className="payment-fail">
                         <p>Payment fail</p>
-                        <button><Link to={'/'}>return to home</Link></button>
+                        <button onClick={backHome}>return to home</button>
                     </div>
                 }
             </div>
