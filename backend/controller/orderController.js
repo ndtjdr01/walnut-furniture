@@ -34,8 +34,8 @@ const postOrderOnline = async (req, res) => {
         const session = await stripe.checkout.sessions.create({
             line_items: line_items,
             mode: 'payment',
-            success_url: `http://localhost:5173/verify?success=true&orderId=${order._id}`,
-            cancel_url: `http://localhost:5173/verify?success=false&orderId=${order._id}`
+            success_url: `${process.env.FRONTEND_URL}/verify?success=true&orderId=${order._id}`,
+            cancel_url: `${process.env.FRONTEND_URL}/verify?success=false&orderId=${order._id}`
         })
         res.status(200).json({ success_url: session.url, success: true })
     } catch (error) {

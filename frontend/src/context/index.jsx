@@ -11,7 +11,7 @@ const ProductGolobal = ({ children }) => {
   const [menu_lists, setMenu_lists] = useState([])
   const [loading,setLoading] = useState(false)
   const [error, setError] = useState(false)
-
+  const [isLogin,setIsLogin] = useState(false)
   // cart
   const getCartItems = async (token) => {
     try {
@@ -28,6 +28,7 @@ const ProductGolobal = ({ children }) => {
   }
   const addToCart = async (id) => {
     const token = localStorage.getItem('token')
+    if (!token){setIsLogin(true);return}
     let cart = {...cartItems};  
     if(cart[id]>0){
       cart[id]+=1
@@ -107,7 +108,9 @@ const ProductGolobal = ({ children }) => {
     removeToCart,
     getTotal,
     loading,
-    error
+    error,
+    isLogin,
+    setIsLogin,
   }
 
   return (

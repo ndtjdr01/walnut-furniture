@@ -9,7 +9,7 @@ const Verify = () => {
     const orderId = searchParams.get('orderId')
     const updatePayment = async () => {
         try {
-            if (success) {
+            if (success===true) {
                 const response = await axios.put(`${API_BASE_URL}/api/order/online/${orderId}`, { payment: true })
                 console.log(response)
                 if (response) alert('payment successful')
@@ -21,7 +21,7 @@ const Verify = () => {
             console.log(error)
         }
     }
-    useEffect(() => updatePayment, [])
+    useEffect(() => updatePayment(), [])
     return (
         <div className='verify-container'>
             <h2 className='title'>Payment</h2>

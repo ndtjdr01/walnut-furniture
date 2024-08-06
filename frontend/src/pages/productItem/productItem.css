@@ -80,11 +80,15 @@
 @media (max-width: 768px) {
     .product-item-container{
         margin: 0;
-        padding: 30px;
+        padding: 20px;
         flex-direction: column;
     }
     .product-item-description{
         margin: 10px;
         max-width: 100%;
+    }
+    .product-item-img-container {
+        max-width: 100%;
+        padding: 10px;
     }
 }

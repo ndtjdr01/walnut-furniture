@@ -5,7 +5,7 @@ import { ProductContext } from '../../context'
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const FormAddress = () => {
-    const { product_lists, cartItems,getTotal } = useContext(ProductContext)
+    const { product_lists, cartItems,getTotal,setIsLogin } = useContext(ProductContext)
     const getItems = () => {
         let items = []
         for (let item of product_lists) {
@@ -21,8 +21,9 @@ const FormAddress = () => {
         setData({ ...data, [e.target.name]: e.target.value })
     }
     const handleSubmit = async (e) => {
-        const token = localStorage.getItem('token')
+        if(Object.keys(cartItems).length===0) {alert('No cart items')}
         e.preventDefault()
+        const token = localStorage.getItem('token')
         try {
             const response = await axios.post(`${API_BASE_URL}/api/order/online`,
                 {

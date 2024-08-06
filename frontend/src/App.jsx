@@ -3,7 +3,7 @@ import Header from './component/header/header'
 import Footer from './component/footer/footer'
 import { Route, Routes } from 'react-router-dom'
 import Product from './pages/product/product'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import Login from './component/loginorsignup/login'
 import Signup from './component/loginorsignup/signup'
 import Cart from './pages/cart/cart'
@@ -13,10 +13,11 @@ import ProductItem from './pages/productItem/productItem'
 import FormContact from './component/form-address/formContact'
 import './App.css'
 import Verify from './pages/verify/verify'
+import { ProductContext } from './context'
 
 function App() {
   const [formDisplay, setFormDisplay] = useState(false)
-  const [isLogin,setIsLogin] = useState(false)
+  const {isLogin,setIsLogin} = useContext(ProductContext)
   const [isTypeLogin,setIsTypeLogin] = useState(true)
 
   return (
