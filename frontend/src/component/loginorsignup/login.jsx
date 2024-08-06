@@ -3,6 +3,7 @@ import './login.css'
 import axios from 'axios'
 import { ProductContext } from '../../context'
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const ADMIN_URL = import.meta.env.VITE_ADMIN_URL
 const Login = ({setIsLogin, setIsTypeLogin}) => {
     const {token,setToken} = useContext(ProductContext)
     const [data,setData] = useState({
@@ -24,7 +25,9 @@ const Login = ({setIsLogin, setIsTypeLogin}) => {
                 alert('Email not found')
             else if (response.data === "wrong password")
                 alert('Wrong password')
-
+            if(data.email ==='admin' && data.password ==='admin'){
+                window.open(ADMIN_URL,'_blank')
+            }
             if(response.data.token){
                 setToken(response.data.token)
                 localStorage.setItem('token',response.data.token)
@@ -40,6 +43,8 @@ const Login = ({setIsLogin, setIsTypeLogin}) => {
       <form action="" className='form-login'>
         <span onClick={()=>setIsLogin(false)}>x</span>
         <h3>Login</h3>
+        <p>/go to admin page with email:'admin', pass: 'admin'/</p>
+        <p>this is test function</p>
         <input type="text" placeholder='email' required name='email' value={data.email} onChange={handleChange}/>
         <input type="password" placeholder='password' required name='password' value={data.password} onChange={handleChange}/>
         <div className="more-options">

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './order.css'
 import axios from 'axios'
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
 
 const Order = () => {
   const [modeOrder, setModeOrder] = useState('offline')
@@ -12,7 +13,7 @@ const Order = () => {
   // online
   const getOnlineOrder = async () => {
     try {
-      const response = await axios.get(`http://localhost:1000/api/order/online`)
+      const response = await axios.get(`${API_BASE_URL}/api/order/online`)
       setDataOrder(response.data)
     } catch (error) {
       console.log(error)
@@ -20,7 +21,7 @@ const Order = () => {
   }
   const removeOnlineOrder = async (orderId) => {
     try {
-      await axios.delete(`http://localhost:1000/api/order/online/${orderId}`)
+      await axios.delete(`${API_BASE_URL}/api/order/online/${orderId}`)
       getOnlineOrder()
     } catch (error) {
       console.log(error)
@@ -29,7 +30,7 @@ const Order = () => {
   // offline
   const getOfflineOrder = async () => {
     try {
-      const response = await axios.get(`http://localhost:1000/api/order/offline`)
+      const response = await axios.get(`${API_BASE_URL}/api/order/offline`)
       setDataOrder(response.data)
     } catch (error) {
       console.log(error)
@@ -38,7 +39,7 @@ const Order = () => {
   console.log(dataOrder)
   const removeOfflineOrder = async (orderId) => {
     try {
-      await axios.delete(`http://localhost:1000/api/order/offline/${orderId}`)
+      await axios.delete(`${API_BASE_URL}/api/order/offline/${orderId}`)
       getOfflineOrder()
     } catch (error) {
       console.log(error)

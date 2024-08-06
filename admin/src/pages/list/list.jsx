@@ -3,7 +3,7 @@ import './list.css'
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
 
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
 const List = () => {
   const [product, setProduct] = useState([])
   const navigate = useNavigate()
@@ -13,7 +13,7 @@ const List = () => {
   
   const deleteProduct = async (id) => {
     try {
-      const response = await axios.delete(`http://localhost:1000/api/product/remove/${id}`,)
+      const response = await axios.delete(`${API_BASE_URL}/api/product/remove/${id}`,)
       if (response) {
         getProduct()
       }
@@ -24,7 +24,7 @@ const List = () => {
 
   const getProduct = async () => {
     try {
-      const response = await axios.get('http://localhost:1000/api/product/')
+      const response = await axios.get(`${API_BASE_URL}/api/product/`)
       setProduct(response.data)
     } catch (error) {
       console.error('Error:', error)
@@ -47,7 +47,7 @@ const List = () => {
       {product.map(item => (
         <div className="product-item-container" key={item._id}>
           <div className="grid">
-            <img src={`http://localhost:1000/api/images/${item.image}`} />
+            <img src={`${API_BASE_URL}/api/images/${item.image}`} />
             <p>{item.name}</p>
             <p>{item.category}</p>
             <p>{item.price}</p>
