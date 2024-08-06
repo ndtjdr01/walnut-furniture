@@ -14,7 +14,7 @@ const Verify = () => {
     }
     const updatePayment = async () => {
         try {
-            if (success===true) {
+            if (success==='true') {
                 const response = await axios.put(`${API_BASE_URL}/api/order/online/${orderId}`, { payment: true })
                 console.log(response)
                 if (response) alert('payment successful')
