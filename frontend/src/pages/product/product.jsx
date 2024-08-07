@@ -27,7 +27,7 @@ const Product = () => {
   return (
     <div>
       {loading
-        ? <div>...loading from database! please wait!</div>
+        ? <div>...Sorry! Pls wait about 1-2 minutes to connect to backend on render</div>
         : <div className='product-container'>
           <div className="product-header"></div>
           <div className="product-content">
