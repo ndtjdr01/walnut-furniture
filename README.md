@@ -1,2 +1,2 @@
-video: https://www.youtube.com/watch?v=j2wVk2u356I <hr/>
-Demo: https://walnut-furniture.onrender.com/ (sometime it will have some troubleshot bc i deploy on render with free instance)
+video: <a href="https://www.youtube.com/watch?v=j2wVk2u356I" target="_blank">https://www.youtube.com/watch?v=j2wVk2u356I</a> <hr/>
+Demo:<a href="https://walnut-furniture.onrender.com/" target="_blank">https://walnut-furniture.onrender.com/</a>  (sometime it will have some troubleshot bc i deploy on render with free instance)
