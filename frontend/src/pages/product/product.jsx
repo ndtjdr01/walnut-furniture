@@ -4,7 +4,7 @@ import { ProductContext } from '../../context'
 import { Link } from 'react-router-dom'
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const Product = () => {
-  const { menu_lists, product_lists, addToCart, cartItems, removeToCart, loading,error } = useContext(ProductContext)
+  const { menu_lists, product_lists, addToCart, cartItems, removeToCart, loading, error } = useContext(ProductContext)
   const [data, setData] = useState([])
   const [filter, setFilter] = useState('all')
   const filterProducts = (type) => {
@@ -15,7 +15,7 @@ const Product = () => {
     if (cartItems[id] > 0) {
       removeToCart(id)
     }
-    else { 
+    else {
       addToCart(id)
     }
   }
@@ -23,11 +23,16 @@ const Product = () => {
     if (filter === 'all') setData(product_lists)
     else setData(product_lists.filter(item => item.category === filter))
   }, [filter, product_lists])
-  if(error) return <div>Sorry! May be my host in render went wrong. Pls inbox with my email: thanh161204@gmail.com. Sory for this issue</div>
+  if (error) return <div>Sorry! May be my host in render went wrong. Pls inbox with my email: thanh161204@gmail.com. Sory for this issue</div>
   return (
     <div>
       {loading
-        ? <div>...Sorry! Pls wait about 1-2 minutes to connect to backend on render</div>
+        ? <div>
+          <p>...Sorry! Pls wait about 1-2 minutes to connect to backend on render</p>
+          <p>or you can see my demo in youtube :
+            <a href="https://www.youtube.com/watch?v=j2wVk2u356I" target="_blank">here</a>
+          </p>
+        </div>
         : <div className='product-container'>
           <div className="product-header"></div>
           <div className="product-content">
